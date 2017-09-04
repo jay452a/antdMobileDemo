@@ -1,0 +1,18 @@
+.vacationTitle{
+    width: 100%;
+    background: white;
+    overflow: hidden;
+}
+.vacationTitle li{
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+.vacationTitle a{
+    width: 100%;
+    display: inline-block;
+    padding: 5px 0;
+}
+.vacationTitle a.selected{
+    border-bottom: 2px solid red;
+}
