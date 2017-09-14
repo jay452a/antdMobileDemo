@@ -11,8 +11,15 @@
 .vacationTitle a{
     width: 100%;
     display: inline-block;
-    padding: 5px 0;
+    padding: 15px 0;
 }
 .vacationTitle a.selected{
     border-bottom: 2px solid red;
+}
+.picTitle{
+    padding-left: 25px;
+}
+.picBox{
+    background: white;
+    padding: 25px 0;
 }

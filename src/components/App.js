@@ -21,7 +21,6 @@ const vacation = ({ match }) => {
           </NavLink>
         </li>
       </ul>
-      <Redirect from='/' to={`${match.url}/report`}/>
       <Route path={`${match.url}/report`} component={Report}/>
       <Route path={`${match.url}/history`} component={History}/>
     </div>
@@ -103,7 +102,7 @@ class BasicExample extends Component{
         return (
             <Router>
                 <div>
-                    <Redirect from='/' to='/vacation'/>
+                   {/* <Redirect from='/' to='/vacation'/>*/}
                     <Route path="/vacation" component={vacation}/>
                     <Route path="/about" component={About}/>
                     <Route path="/topics" component={Topics}/>
