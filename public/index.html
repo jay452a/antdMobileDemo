@@ -37,5 +37,18 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
   </body>
+  <script src="https://static.mlinks.cc/scripts/dist/mlink.min.js"></script>
+<script>
+  new Mlink({
+    mlink:'ABCD',//短链地址
+    button:document.querySelector('img#openAppAndrow'),
+    autoLaunchApp : false,
+    autoRedirectToDownloadUrl: true,
+    downloadWhenUniversalLinkFailed: false,
+    inapp : false,
+    params: {}
+  });
+</script>
 </html>

@@ -1,0 +1,151 @@
+.halfTransparentBorder{
+    border: 10px dotted;
+    border-color: rgba(100,56,58,0.5);
+    background: red;
+    background-clip: padding-box;
+    /*border:10px dotted blue;*/
+}
+.mutipleBorder{
+    background: yellowgreen;
+    box-shadow: 0 0 0 10px #655,
+    0 0 0 15px deeppink,
+    0 2px 5px 15px rgba(0,0,0,.6);
+    width: 50%;
+    margin:35px  auto;
+}
+
+.mutipleBorderOutline{ /*可以设定outline的样式，如dotted*/
+    background: yellowgreen;
+    border: 10px solid #655;
+    outline: 5px solid deeppink;
+    width: 50%;
+    margin:25px  auto;
+    outline-offset:0px; /*设定outline的位置*/
+    border-radius: 15px;/* 圆角和outline不能贴合*/
+}
+.backPosition{
+    width: 200px;
+    height:200px;
+    background: url("../img/Lighthouse.jpg") no-repeat right bottom #58a;
+    background-size: 80%;
+    background-origin: content-box; /*从padding内开始计算方位*/
+    padding: 10px;
+    margin: 25px auto;
+    clip-path: polygon(0 0,90% 0,100% 10%,100% 100%,0 100%);
+}
+.hiscontent{
+    height: 400px;
+    display: -moz-box;
+    display:-webkit-flex;
+    display: -ms-flexbox;
+    -webkit-flex-direction:column;
+    -ms-flex-direction:column;
+    flex-direction: column;
+}
+.backGradientH{
+    width: 200px;
+    height:200px;
+    margin: 15px auto;
+    background:  linear-gradient(#fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);
+    background-size: 100% 50px;
+}
+.backGradientV{
+    width: 200px;
+    height:200px;
+    margin: 15px auto;
+    background:  linear-gradient(to right,#fb3 33.3%, #58a 0, #58a 66.6%, yellowgreen 0);
+    background-size: 30px 100%;
+    background-repeat: no-repeat;
+}
+.backGradientX{
+    width: 200px;
+    height:200px;
+    margin: 15px auto;
+    background: linear-gradient(45deg,
+    #fb3 25%, #58a 0, #58a 50%,
+    #fb3 0, #fb3 75%, #58a 0);
+    background-size: 43px,43px;
+}
+.backGradientXRepeat{ /*这种斜向条纹方案更好，但注意其兼容性*/
+    background: repeating-linear-gradient(60deg,
+    #fb3, #fb3 15px, #58a 0, #58a 30px);
+    width: 200px;
+    height:200px;
+    margin: 15px auto;
+}
+@keyframes ants { to { background-position: 100% } }
+.marching-ants {
+    padding: 1em;
+    border: 1px solid transparent;
+    background:
+            linear-gradient(white, white) padding-box,
+            repeating-linear-gradient(-45deg,
+            black 0, black 25%, white 0, white 50%
+            ) 0 / .6em .6em;
+    animation: ants 12s linear infinite;
+    width: 200px;
+    height:200px;
+    margin: 15px auto;
+}
+.tuoyuan{
+    width:400px;
+    height: 200px;
+   /* border-radius: 100% 0% 100% 0% / 50%;*/
+    border-radius:  50%/ 100%  0 100% 0;
+    box-shadow: 0 0.5em 0 rgb(177, 62, 4), 0 0.8em 0.2rem gray;
+    margin: 25px auto;
+    text-align: center;
+    line-height: 200px;
+    color:rgb(101, 35, 2);
+    background: linear-gradient(#f50 7%,#fb8144 86%);
+}
+.tuoyuan:active{
+    box-shadow: 0px 0em 0px rgb(101, 35, 2), 0 0 0.1em gray;
+    position: relative;
+    top:0.5em;
+}
+.parallelogram{
+    width: 200px;
+    height:100px;
+    margin: 25px auto;
+    background: greenyellow;
+    transform: skew(-15deg);
+    position: relative;
+}
+.parallelogram:before{
+    content: '平行四边形';
+    transform: skew(15deg);
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    text-align: center;
+    line-height: 1rem;
+}
+.lingxingPic>img{
+    clip-path: polygon(50% 0, 100% 50%,
+    50% 100%, 0 50%);
+    transition: 1s clip-path;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.lingxingPic>img:hover {
+    clip-path: polygon(0 0, 100% 0,
+    100% 100%, 0 100%);
+}
+@keyframes typing {
+    from {width:0}
+}
+.animationPrintWord{
+    width: 14ch;
+    animation: typing 4s steps(7) ;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.inner1{
+}
+.inner2{
+    -moz-box-flex: 1;
+    -webkit-flex:1;
+    -ms-flex:1;
+}

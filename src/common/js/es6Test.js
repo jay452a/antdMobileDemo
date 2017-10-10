@@ -2,6 +2,12 @@
  * Created by lenovo on 2017/9/12.
  */
 const es6Test = () =>{
+  //析构函数
+  const analysisObj = {
+    a:1,b:2,c:3,d:4
+  }
+  let {a:q,b,c,d=q}=analysisObj
+  console.log(q,b,c,d)
   // set数据结构
   const set = new Set([1, 2, 3, 4, 4]);
   for (let item of set.keys()) {

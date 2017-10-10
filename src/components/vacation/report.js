@@ -51,7 +51,6 @@ class report extends Component{
     componentWillUnmount(){
     }
     componentDidUpdate(){
-         console.log(this.state.vacationDay)
     }
     choseVacation () {
      console.log('click',this)
