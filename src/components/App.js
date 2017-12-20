@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "../static/css/vacation.css";
 import '../static/css/App.css';
-import { BrowserRouter as Router,Route,Link,Redirect, NavLink } from "react-router-dom";
+import { HashRouter  as Router,Route,Link,Redirect, NavLink } from "react-router-dom";
 import Report from "./vacation/report"
 import History from "./vacation/history"
 import Decorator from '@/modules/view/decorator'
