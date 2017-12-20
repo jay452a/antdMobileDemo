@@ -4,6 +4,8 @@ import '../static/css/App.css';
 import { BrowserRouter as Router,Route,Link,Redirect, NavLink } from "react-router-dom";
 import Report from "./vacation/report"
 import History from "./vacation/history"
+import Decorator from '@/modules/view/decorator'
+import Test from '@/modules/view/test'
 
 
 const vacation = ({ match }) => {
@@ -23,6 +25,7 @@ const vacation = ({ match }) => {
       </ul>
       <Route path={`${match.url}/report`} component={Report}/>
       <Route path={`${match.url}/history`} component={History}/>
+     
     </div>
   )
 }
@@ -102,10 +105,12 @@ class BasicExample extends Component{
         return (
             <Router>
                 <div>
-                   {/* <Redirect from='/' to='/vacation'/>*/}
+                   {/* <Redirect from='/' to='/Decorator'/>*/}
                     <Route path="/vacation" component={vacation}/>
                     <Route path="/about" component={About}/>
                     <Route path="/topics" component={Topics}/>
+                    <Route path='/Decorator' component={Decorator}/>
+                    <Route path='/test' component={Test}/>
                 </div>
             </Router>
         )
