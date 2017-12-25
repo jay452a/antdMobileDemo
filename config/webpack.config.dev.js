@@ -12,7 +12,7 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 const pxtorem = require('postcss-pxtorem');
-
+const theme = require('./theme')
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
@@ -245,7 +245,7 @@ module.exports = {
               {
                 loader: require.resolve('less-loader'),
                 options: {
-                  modifyVars: { "@primary-color": "#1DA57A" },
+                  modifyVars: theme,  // 重写less 变量
                 },
               },
             ],

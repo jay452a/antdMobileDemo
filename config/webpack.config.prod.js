@@ -13,7 +13,7 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 const pxtorem = require('postcss-pxtorem');
-
+const theme = require('./theme')
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
@@ -176,7 +176,7 @@ module.exports = {
                   fallback: require.resolve('style-loader'),
                   use: [
                     {
-                      loader: require.resolve('css-loader'),
+                      loader: require.resolve('css-loader')+'?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
                       options: {
                         importLoaders: 1,
                         minimize: true,
@@ -238,7 +238,7 @@ module.exports = {
               {
                 loader: require.resolve('less-loader'),
                 options: {
-                  modifyVars: { "@primary-color": "#1DA57A" },
+                  modifyVars: theme,
                 },
               },
             ],
@@ -253,11 +253,15 @@ module.exports = {
             // it's runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.js$/, /\.html$/, /\.json$/, /\.svg$/, /\.less/],
+            exclude: [/\.js$/, /\.html$/, /\.json$/, /\.svg$/, /\.less/, /\.scss/],
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
             },
           },
+          {
+            test: /\.scss$/,
+            loaders: ['style-loader','css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]','sass-loader']
+          }
           // ** STOP ** Are you adding a new loader?
           // Make sure to add the new loader(s) before the "file" loader.
         ],
