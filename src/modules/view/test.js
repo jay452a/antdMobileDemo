@@ -3,13 +3,14 @@
  */
 import React, { Component } from 'react';
 import { observer } from "mobx-react";  // 在react组件中使用
-import  store  from '@/store/number'
-
+import  store  from '@/store/index';
+import testTyle from '@/static/view/test';
+console.log(testTyle, 1)
 const AllNum = observer((props) => <div>num1 + num2 = {props.store.total}</div>);
 
 const Main = observer((props) => (
   <div>
-    <p>num1 = {props.store.num1}</p>
+    <p className= {testTyle.test}>num1 = {props.store.num1}</p>
     <p>num2 = {props.store.num2}</p>
     <div>
       <button onClick={props.store.addNum1}>num1 + 1</button>

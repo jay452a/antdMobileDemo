@@ -1,0 +1,32 @@
+// $base-size:10vm;
+@mixin font-dpr($size){ //字体使用font-size
+  font-size: $size;
+  [data-dpr='2'] & {font-size: $size * 2;}
+  [data-dpr='3'] & {font-size: $size * 3;}
+}
+@function px2rem($px,$base-size:75px){ //以默认iphone6为标准计算
+  @if(unitless($px)){ //unitless判断是否带单位，不带单位为true,否则为false
+    @return (($px+0px)/$base-size)*1rem
+  }
+  @if(unit($px) == rem) {
+    @return $px
+  }
+  @return ($px / $base-size)*1rem
+}
+$primaryColor:#ec4741;
+$borderColor:#dcdcdc;
+$colorFont: #626262;
+.app-borderSkew:after{
+  content: '';
+  height: 1px;
+  transform: scaleY(0.5);
+  width: 100%;
+  background: $borderColor;
+  display: inline-block;
+}
+.app-noMore{
+  text-align: center;
+  color: $colorFont;
+  margin-bottom: px2rem(40px);
+  margin-top: px2rem(30px);
+}

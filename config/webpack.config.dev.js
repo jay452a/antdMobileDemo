@@ -88,7 +88,7 @@ module.exports = {
     // https://github.com/facebookincubator/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
-    extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx'],
+    extensions: ['.web.js', '.js', '.json', '.web.jsx', '.jsx', '.scss'],
     alias: {
       
       // Support React Native Web
@@ -170,7 +170,7 @@ module.exports = {
             use: [
               require.resolve('style-loader'),
               {
-                loader: require.resolve('css-loader'),
+                loader: require.resolve('css-loader')+'?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
                 options: {
                   importLoaders: 1,
                 },
@@ -215,7 +215,7 @@ module.exports = {
             // it's runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.js$/, /\.html$/, /\.json$/, /\.svg$/, /\.less$/],
+            exclude: [/\.js$/, /\.html$/, /\.json$/, /\.svg$/, /\.less$/, /\.scss/],
             loader: require.resolve('file-loader'),
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
@@ -250,6 +250,10 @@ module.exports = {
               },
             ],
           },
+          {
+            test: /\.scss$/,
+            loaders: ['style-loader','css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]','sass-loader']
+          }
         ],
       },
       // ** STOP ** Are you adding a new loader?
