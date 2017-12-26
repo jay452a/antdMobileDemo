@@ -19,10 +19,15 @@ const Time = observer((props) => (
   }
   componentDidMount () {
     let img = document.getElementById('img')
-    new finger(img).princh((a1, a2) => {
+    let dom = new finger(img)
+    let Div = document.getElementById('testDiv')
+    dom.princh((k) => {
       this.setState({
-        a1: a1.clientX,
-        a2: a2.clientX
+        a1: k
+      })
+    }).tap(() => {
+      this.setState({
+        a2: 'tap'
       })
     })
   }
