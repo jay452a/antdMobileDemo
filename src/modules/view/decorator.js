@@ -11,7 +11,8 @@ const Time = observer((props) => (
     super(props)
     this.state = {
       a1: '1',
-      a2: '2'
+      a2: '2',
+      a3: '3'
     }
   }
   componentWillMount() {
@@ -20,10 +21,13 @@ const Time = observer((props) => (
   componentDidMount () {
     let img = document.getElementById('img')
     let dom = new finger(img)
-    let Div = document.getElementById('testDiv')
     dom.princh((k) => {
       this.setState({
         a1: k
+      })
+    }).swipe(r => {
+      this.setState({
+        a3: r
       })
     }).tap(() => {
       this.setState({
@@ -36,6 +40,7 @@ const Time = observer((props) => (
       <div>
         <p>a1: ({this.state.a1})</p>
         <p>a2: ({this.state.a2})</p>
+        <p>a3: ({this.state.a3})</p>
         <img src={require('@/static/img/webchat2@3x.png')} style={{'width': '100%'}} id="img"/>
       </div>
     )
