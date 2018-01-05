@@ -6,6 +6,7 @@ import Report from "../components/vacation/report"
 import History from "../components/vacation/history"
 import Decorator from '@/modules/view/decorator'
 import Test from '@/modules/view/test'
+import D3 from '@/modules/view/d3Test'
 
 
 const vacation = ({ match }) => {
@@ -111,6 +112,7 @@ class router extends Component{
           <Route path="/topics" component={Topics}/>
           <Route path='/Decorator' component={Decorator}/>
           <Route path='/test' component={Test}/>
+          <Route path='/d3' component={D3}/>
         </div>
       </Router>
     )

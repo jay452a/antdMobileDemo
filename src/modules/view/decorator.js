@@ -16,7 +16,8 @@ const Time = observer((props) => (
     }
   }
   componentWillMount() {
-  
+    let d = new Date().getFullYear()
+    console.log(d)
   }
   componentDidMount () {
     let img = document.getElementById('img')
