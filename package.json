@@ -34,6 +34,7 @@
     "mobx": "^3.4.1",
     "mobx-react": "^4.3.5",
     "object-assign": "4.1.1",
+    "photoswipe": "^4.1.2",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.6",
     "postcss-pxtorem": "^4.0.1",

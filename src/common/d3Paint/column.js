@@ -41,8 +41,8 @@ const column = function (d3,dom,data) {
     })
   // 线性比例尺
   var linear = d3.scaleLinear() //线性比例尺新API
-    .domain([1,3])
-    .range([2,6])
+    .domain([0,data.length])
+    .range([0,300])
   console.log(linear(5))
   // 量子比例尺和阈值比例尺差不多
   var quantize = d3.scaleQuantile()
@@ -61,5 +61,19 @@ const column = function (d3,dom,data) {
     .attr('fill',function (d) {
       return quantize(d)
     })
+  //定义坐标轴
+  var ordinalDomain = []
+  var ordinaRange = []
+  data.map((res,i) => {
+    ordinalDomain.push(i)
+    ordinaRange.push(i*50)
+  })
+  var ordinal = d3.scaleOrdinal().domain(ordinalDomain).range(ordinaRange)  //定义序数比例尺
+  var bottomAxis = d3.axisBottom().scale(ordinal) // 新版API
+  var leftAxis = d3.axisRight().scale(linear)
+  var xAxis = svg.append('g').attr('transform', 'translate(10,350)')
+  var yAxis = svg.append('g').attr('transform', 'translate(100,0)')
+  bottomAxis(xAxis)
+  leftAxis(yAxis)
 }
 export default column
