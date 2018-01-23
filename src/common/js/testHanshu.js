@@ -21,13 +21,21 @@
   }
   ceshi.duplicate = (arr) => {
     let data = []
-    for (let i = 0; i <  arr.length; i++) {
-      if (data.indexOf(arr[i]) === -1) {
-        data.push(arr[i])
+    if (arr&&arr.length > 0) {
+      for (let i = 0; i <  arr.length; i++) {
+        if (data.indexOf(arr[i]) === -1) {
+          data.push(arr[i])
+        }
       }
     }
     return data
   }
+  ceshi.sum = (a, b) => {
+    return a + b
+  }
+  
+  
+  
   // 获取所有function名称并返回一个数组
   ceshi.getFun = function () {
     var list = []
@@ -39,7 +47,6 @@
   // 将所有函数赋值到prototype属性上
   var mixin = function () {
     var FunList  =  ceshi.getFun()
-    console.log(FunList)
     for (let i = 0 ; i < FunList.length; i++) {
       ceshi.prototype[FunList[i]] = ceshi[FunList[i]]
     }
