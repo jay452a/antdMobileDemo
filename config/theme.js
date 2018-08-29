@@ -3,7 +3,7 @@
  */
 // antd-mobile修改主题配置文件
 module.exports = {
-  "@brand-primary": "#1DA57A",
+  "@brand-primary": "#FEBC43",
   "brand-primary-tap": "rgba(29, 165, 122, 0.72)",
   "brand-wait": "rgba(29, 165, 122, 0.72)",
   "hd": "2px",

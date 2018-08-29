@@ -1,0 +1,73 @@
+.top{
+  display: flex;
+  height: 200px;
+  background: #FEBC43;
+  justify-content:center;
+  align-items:center;
+  .item{
+    img{
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+    p{
+      text-align: center;
+      color: white;
+    }
+  }
+}
+.myOrder{
+  margin-top: 5px;
+  background: white;
+  h3{
+    font-weight: 100;
+    padding: 15px 15px;
+    font-size: 14px;
+    display: flex;
+    border-bottom: 1px solid #dcdcdc;
+    span{
+      float: right;
+      flex: 1;
+    }
+    span:last-child{
+      text-align: right;
+    }
+    .icon {
+      position: absolute;
+    }
+  }
+}
+.orderStatus{
+  text-align: center;
+  img{
+    width: 50px;
+    margin-bottom: 10px;
+  }
+}
+.orderFlexItem{
+  padding: 10px 0;
+}
+.myInfo{
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid #f5f5f5;
+  margin-top: 15px;
+  background: white;
+  li{
+    width: 25%;
+    box-sizing: border-box;
+    text-align: center;
+    border-bottom:1px solid #f5f5f5;
+    border-right: 1px solid #f5f5f5;
+    padding: 10px;
+    background: white;
+    img{
+      width: 50px;
+      margin-bottom: 10px;
+    }
+    &:active{
+      background: #f2f2f2;
+    }
+  }
+}

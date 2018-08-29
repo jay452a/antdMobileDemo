@@ -106,7 +106,7 @@ class router extends Component{
     return (
       <Router>
         <div>
-          {/* <Redirect from='/' to='/Decorator'/>*/}
+           <Redirect from='/' to='/Decorator'/>
           <Route path="/vacation" component={vacation}/>
           <Route path="/about" component={About}/>
           <Route path="/topics" component={Topics}/>
