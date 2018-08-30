@@ -25,7 +25,14 @@ class Time {
     }, 1000)
   };
 }
+class Jujia{
+  @observable user = ''
+  @action saveUser = (data) => {
+     this.user = data
+  }
+}
 export default {
   newState: new MyState(),
-  Timeer: new Time()
+  Timeer: new Time(),
+  jujia: new Jujia()
 }

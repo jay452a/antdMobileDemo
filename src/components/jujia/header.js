@@ -20,7 +20,7 @@ export default class tabFooter extends React.Component{
                 <NavBar
                     mode="dark"
                     icon={<Icon type="left" />}
-                    onLeftClick={() => window.history.go(-1)}
+                    onLeftClick={() => window.close()}
                     rightContent={[
                         <span style={{marginRight:'10px'}} key="0">{this.state.name}</span>,
                         <Icon key="1" type="ellipsis" />,

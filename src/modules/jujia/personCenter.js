@@ -5,20 +5,42 @@ import React, { Component } from 'react';
 import TabFoot from '@/components/jujia/tabFooter'
 import style from '@/static/jujia/personCenter'
 import { Flex } from 'antd-mobile';
+import { observer } from "mobx-react";
+import api from '@/api/index'
+
+@observer
 export default class PersonCenter extends React.Component{
     constructor (props) {
         super(props)
+        this.state = {
+            user:''
+        }
     }
     componentDidMount () {
-
+      if(!this.props.store.user) {
+          api.getUserInfo().then(res => {
+              this.setState(
+                  {user: res}
+              )
+              this.props.store.saveUser(res)
+              console.log(this.props.store)
+          },err => {
+              window.location.href = '#/login'
+          })
+      }else{
+          this.setState(
+              {user: this.props.store.user}
+          )
+      }
     }
+
     render() {
         return (
             <div>
                 <div className={style.top}>
                     <div className={style.item}>
                         <img src={require('@/static/img/icon/grxx.png')} />
-                        <p>张三</p>
+                        <p>{this.state.user.username}</p>
                     </div>
                 </div>
                 <div className={style.myOrder}>
