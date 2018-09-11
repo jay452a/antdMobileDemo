@@ -39,7 +39,7 @@ export default class Login extends React.Component {
             console.log(res)
             console.log(this.props.store.user)
             this.props.store.saveUser(res.user)
-            window.history.go(-1)
+            window.location.replace("#/healthManage");
         },err => {
             Toast.info(err.msg);
         })

@@ -7,9 +7,11 @@ import  store  from '@/store/index';
 import style from '@/static/jujia/healthManage.scss';
 import TabFoot from '@/components/jujia/tabFooter'
 import Header from '@/components/jujia/header'
+import {connect} from 'react-redux'
+import {addTodo,testdo} from '../../action'
 console.log(style, 1)
 
-export default class HeathManage extends React.Component {
+class HeathManage extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
@@ -35,7 +37,7 @@ export default class HeathManage extends React.Component {
     render() {
         return (
             <div className={style.content}>
-                <Header title="健康管理"></Header>
+                <Header title="健康管理" store={store.jujia}></Header>
                 <img src={require('@/static/img/icon/1_02.jpg')}/>
                 <ul className={style.flexUl}>
                     {
@@ -46,6 +48,7 @@ export default class HeathManage extends React.Component {
                         })
                     }
                 </ul>
+                <p>test的state为{this.props.test.state}</p>
                <TabFoot active="2"></TabFoot>
             </div>
         );
@@ -53,3 +56,16 @@ export default class HeathManage extends React.Component {
 }
 
 
+function mapStateToProps(state) {
+    return {
+        todos: state.todos,
+        test:state.test
+    }
+}
+function mapDispatchToProps(dispatch) {
+    return {
+        addTodo: (...state) => dispatch(addTodo(...state)),
+        testdo: (...state) => dispatch(testdo(...state))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(HeathManage)

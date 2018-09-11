@@ -3,16 +3,35 @@
  */
 import React, { Component } from 'react';
 import { NavBar, Icon } from 'antd-mobile';
+import { observer } from "mobx-react";
+import  store from '@/store/index'
+import api from '@/api/index'
 
+@observer
 export default class tabFooter extends React.Component{
     constructor (props) {
         super(props)
         this.state={
-            name: '张三'
+            name: ''
         }
     }
     componentDidMount () {
         console.log(this.props)
+        if(!this.props.store.user) {
+            api.getUserInfo().then(res => {
+                this.setState(
+                    {name: res.username}
+                )
+                this.props.store.saveUser(res)
+                console.log(this.props.store)
+            },err => {
+
+            })
+        }else{
+            this.setState(
+                {name: this.props.store.user.username}
+            )
+        }
     }
     render() {
         return(

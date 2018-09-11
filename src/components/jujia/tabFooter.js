@@ -31,17 +31,17 @@ export default class tabFooter extends React.Component{
             <div style={style.footer}>
                 <Flex align="center">
                     <Flex.Item style={style.flexItem}>
-                        <Link to={`/index`} className={this.props.active==='1'?className.active:''}>
+                        <Link to={`/index`} className={this.props.active==='1'?className.active:''} replace>
                             游仙养老
                         </Link>
                     </Flex.Item>
                     <Flex.Item style={style.flexItem}>
-                        <Link to={`/healthManage`}  className={this.props.active==='2'?className.active:''}>
+                        <Link to={`/healthManage`}  className={this.props.active==='2'?className.active:''} replace>
                         健康管理
                         </Link>
                     </Flex.Item>
                     <Flex.Item style={style.flexItem}>
-                        <Link to={`/personCenter`} className={this.props.active==='3'?className.active:''}>
+                        <Link to={`/personCenter`} className={this.props.active==='3'?className.active:''} replace>
                         个人中心
                         </Link>
                     </Flex.Item>
